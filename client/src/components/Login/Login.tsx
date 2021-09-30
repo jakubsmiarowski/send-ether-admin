@@ -63,7 +63,7 @@ export default function Login() {
                         <>
                             <a
                                 className="login-link"
-                                href={`https://github.com/login/oauth/authorize?scope=user&client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`}
+                                href={`https://github.com/login/oauth/authorize?scope=user&client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=http://localhost:3000/login`}
                                 onClick={() => {
                                     setData({...data, errorMessage: ""});
                                 }}

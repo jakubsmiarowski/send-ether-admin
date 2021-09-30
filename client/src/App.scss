@@ -26,18 +26,18 @@ body {
   padding: 2em 6em;
 }
 @include responsive(sm-phone) {
-  .container {
+  body {
     padding: 0.5rem;
   }
 }
 
 @include responsive(lg-phone) {
-  .container {
+  body {
     padding: 1.5em;
   }
 }
 @include responsive(tab-port) {
-  .container {
+  body {
     padding: 1.5em 3em;
   }
 }

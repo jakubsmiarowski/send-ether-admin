@@ -20,7 +20,7 @@ const Account = () => {
         try {
             await getGithubUser(accessToken);
         } catch (err) {
-            throw new Error();
+            console.error(err);
         }
     }, [])
 

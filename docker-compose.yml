@@ -14,9 +14,7 @@ services:
       - REACT_APP_CLIENT_ID=b14f89a480e159559436
       - REACT_APP_CLIENT_SECRET=953c61ce407a64d0c3b20b2e26d4d21629850546
       - REACT_APP_REDIRECT_URI=http://localhost:3000/login
-      - REACT_APP_BASE_URL=http://localhost:5000
-  #    volumes:
-  #      - ./src:/app/src
+      - REACT_APP_BASE_URL=http://localhost:5000/api
 
   server:
     build:
@@ -46,7 +44,3 @@ services:
       - POSTGRES_PASSWORD=Warszawa1234
     ports:
       - "5432:5432"
-## tworzyc obrazy
-## wypchnac na githubacion
-## sciagnac repositories
-## exec bin bash

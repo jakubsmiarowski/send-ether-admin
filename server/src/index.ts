@@ -40,26 +40,26 @@ app.use((req: Request, res: any, next: any) => {
 
 // Root Handlers
 app.get('/', rootHandler);
-app.post('/authenticate', authHandler);
+app.post('/api/authenticate', authHandler);
 
 // Payment Gate Owner Handlers
-app.post('/user', addPGOwnerHandler);
-app.get('/user/:githubId', getPGOwnerHandler);
+app.post('/api/user', addPGOwnerHandler);
+app.get('/api/user/:githubId', getPGOwnerHandler);
 
 // Payment Gates Handlers
-app.post('/payment-gates', addPaymentGateHandler);
-app.get('/payment-gates/:id', getPaymentGatesByUserIdHandler);
-app.get('/payment-gates/status/:widgetToken', checkPaymentGateStatus);
-app.get('/payment-gates/:id/transactions', getPaymentGatesTransactionsHandler);
-app.put('/payment-gates/:id', updatePaymentGateHandler);
-app.delete('/payment-gates/:id', deletePaymentGateHandler);
+app.post('/api/payment-gates', addPaymentGateHandler);
+app.get('/api/payment-gates/:id', getPaymentGatesByUserIdHandler);
+app.get('/api/payment-gates/status/:widgetToken', checkPaymentGateStatus);
+app.get('/api/payment-gates/:id/transactions', getPaymentGatesTransactionsHandler);
+app.put('/api/payment-gates/:id', updatePaymentGateHandler);
+app.delete('/api/payment-gates/:id', deletePaymentGateHandler);
 
 // Transaction Handlers
-app.post('/transactions', addTransactionHandler);
-app.get('/get-transactions', getTransactionsHandler);
-app.get('/transactions/:id', getTransactionByPaymentGateIdHandler);
-app.put('/transactions/:id', updateTransactionHandler);
-app.delete('/transactions/:id', deleteTransactionHandler);
+app.post('/api/transactions', addTransactionHandler);
+app.get('/api/get-transactions', getTransactionsHandler);
+app.get('/api/transactions/:id', getTransactionByPaymentGateIdHandler);
+app.put('/api/transactions/:id', updateTransactionHandler);
+app.delete('/api/transactions/:id', deleteTransactionHandler);
 
 app.listen(port, () => {
     return console.log(`Server is listening on ${port}`);
