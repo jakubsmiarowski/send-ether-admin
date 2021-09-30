@@ -1,0 +1,30 @@
+@import "src/App";
+.payment-gates-container {
+  width: auto;
+  border-radius: 4px;
+  background-color: #ecf0f1;
+  padding: 2em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 2em;
+  &--disabled {
+    width: auto;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    padding: 2em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 2em;
+    border-right: 4px solid #d63031;
+  }
+}
+.information-container {
+  border-radius: 4px;
+  background-color: #ecf0f1;
+  padding: 2em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 2em;
+}
+@include responsive(sm-phone){
+  .payment-gate-container {
+    padding: 0;
+  }
+}

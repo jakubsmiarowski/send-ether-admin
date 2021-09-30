@@ -1,0 +1,112 @@
+@import "src/App";
+
+.container-account{
+  display: flex;
+  flex-direction: column;
+  h3 {
+    margin-top: 0;
+  }
+  hr {
+    margin: 0 auto;
+  }
+  &__overview {
+    width: 400px;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    padding: 2em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 2em;
+    &-balance {
+      margin-top: 1em;
+    }
+  }
+  &__info {
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    padding: 2em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    &-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      &--img {
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+      }
+
+    }
+    &-buttons {
+      display: flex;
+      flex-direction: column;
+      &--btn {
+        padding: 1em 2em;
+        background-color: transparent;
+        color: black;
+        border-radius: 4px;
+        border: 1px solid #8c8c8c;
+        transition: all 0.3s ease;
+        &:nth-child(1){
+          margin-bottom: 2em;
+        }
+        &:hover {
+          color: white;
+          background-color: #8c8c8c;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@include responsive(tab-land){
+  .container__info-wrapper {
+
+  }
+}
+
+@include responsive(tab-port) {
+  .container-account__info {
+    align-items: center;
+    &-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    &-buttons {
+      margin-top: 2em;
+    }
+  }
+}
+@include responsive(lg-phone) {
+  .container-account__info {
+    align-items: center;
+    &-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    &-buttons {
+      margin-top: 2em;
+    }
+  }
+}
+
+@include responsive(sm-phone) {
+  .container-account__info {
+    align-items: center;
+    padding: 2em 0.5em;
+    &-wrapper {
+      flex-direction: column;
+      align-items: center;
+      &--img{
+        height: 100px;
+        width: 100px;
+      }
+    }
+    &-buttons {
+      margin-top: 2em;
+    }
+  }
+}

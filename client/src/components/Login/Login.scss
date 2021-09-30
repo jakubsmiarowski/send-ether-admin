@@ -1,0 +1,142 @@
+@import "src/App";
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    width: 25%;
+    height: 45%;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+    padding: 2em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    &__logo{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &-img {
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+        filter: invert(56%) sepia(36%) saturate(10%) hue-rotate(349deg) brightness(92%) contrast(88%);
+      }
+    }
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    &__error {
+      margin: 10px 0 20px;
+      color: red;
+    }
+    .login-container {
+      background-color: #8c8c8c;
+      width: 40%;
+      border-radius: 4px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > .login-link {
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        > span:nth-child(2) {
+          margin-left: 5px;
+        }
+      }
+      .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba($color: #000000, $alpha: 0.35);
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+@include responsive(tab-land){
+  .section {
+    &-wrapper {
+      height: 40%;
+      width: 60%;
+    }
+  }
+}
+@include responsive(tab-port) {
+  .section {
+    &-wrapper {
+      height: 40%;
+      width: 60%;
+      .login-container {
+        .login-link {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+@include responsive(lg-phone) {
+  .section {
+    &-wrapper {
+      height: 40%;
+      width: 60%;
+      &__logo{
+        font-size: 15px;
+      }
+      .login-container {
+        .login-link {
+          padding: 0 5px;
+          font-size: 10px;
+          svg {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+@include responsive(sm-phone) {
+  .section {
+    &-wrapper {
+      height: 40%;
+      width: 60%;
+      &__logo{
+        font-size: 15px;
+      }
+      .login-container {
+        .login-link {
+          padding: 0 5px;
+          font-size: 10px;
+          svg {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

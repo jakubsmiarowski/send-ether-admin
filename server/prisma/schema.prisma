@@ -1,0 +1,51 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model PaymentGateOwner {
+  id           Int           @id @default(autoincrement())
+  githubId     String        @unique
+  created_at   DateTime      @default(now())
+  paymentGates PaymentGate[]
+}
+
+model PaymentGate {
+  id           Int               @id @default(autoincrement())
+  widgetToken  String            @unique
+  owner        PaymentGateOwner  @relation(fields: [userId], references: [id])
+  userId       Int
+  transactions Transaction[]
+  status       PaymentGateStatus
+  url          String
+  name         String
+}
+
+model Transaction {
+  id            Int           @id @default(autoincrement())
+  to            String
+  from          String
+  status        PaymentStatus
+  createdAt     DateTime      @default(now())
+  finishedAt    DateTime      @updatedAt
+  value         String
+  product       String
+  paymentGate   PaymentGate   @relation(fields: [paymentGateId], references: [id])
+  paymentGateId Int
+  gasUsed       Int
+}
+
+enum PaymentStatus {
+  OUT
+  IN
+  SELF
+}
+
+enum PaymentGateStatus {
+  ACTIVE
+  DISABLED
+}

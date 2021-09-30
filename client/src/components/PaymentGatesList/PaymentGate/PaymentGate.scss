@@ -1,0 +1,141 @@
+@import "src/App";
+.payment-gate-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &--text {
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      p {
+        margin-left: 2em;
+        font-weight: bold;
+      }
+    }
+  }
+  &--button{
+    display: flex;
+    flex-direction: column;
+    button{
+      padding: 1em 2em;
+      background-color: transparent;
+      color: black;
+      border-radius: 4px;
+      border: 1px solid #8c8c8c;
+      transition: all 0.3s ease;
+      &:nth-child(1){
+        margin-bottom: 1em;
+      }
+      &:hover {
+        color: white;
+        background-color: #8c8c8c;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.copy-token {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  button {
+    margin-left: 20px;
+    padding-bottom: 5px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+  }
+}
+.disabled {
+  text-decoration: line-through;
+  color: red !important;
+}
+.user-id-container{
+  width: 300px;
+}
+.truncate{
+  width: 350px;
+  vertical-align: bottom;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@include responsive(tab-port) {
+  .payment-gate-info--button {
+    margin-left: 1em;
+  }
+}
+
+@include responsive(lg-phone){
+  .payment-gate-info {
+    flex-direction: column;
+    &--text {
+      .user-id-container{
+        width: auto;
+      }
+      div {
+        justify-content: space-between;
+      }
+    }
+    &--button {
+      flex-direction: row;
+      button{
+        margin-top: 1em;
+        &:nth-child(1){
+          margin-bottom: 0;
+          margin-right: 1em;
+        }
+      }
+    }
+  }
+  .copy-text {
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@include responsive(sm-phone){
+  .payment-gate-info {
+    flex-direction: column;
+    &--text {
+      font-size: 0.8em;
+      .user-id-container{
+        width: auto;
+      }
+      div{
+        justify-content: space-between;
+      }
+    }
+    &--button {
+      flex-direction: row;
+      button{
+        margin-top: 1em;
+        &:nth-child(1){
+          margin-bottom: 0;
+          margin-right: 1em;
+        }
+      }
+    }
+  }
+  .truncate{
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+  .disabled {
+    span {
+      font-size: 0.8em;
+    }
+  }
+}

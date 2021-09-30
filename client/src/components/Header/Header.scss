@@ -1,0 +1,139 @@
+@import "src/App";
+
+.header-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  overflow: hidden;
+  &__logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &-img {
+      height: 30px;
+      width: 30px;
+      margin-right: 10px;
+      filter: invert(56%) sepia(36%) saturate(10%) hue-rotate(349deg) brightness(92%) contrast(88%);
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    transition: all 1s ease;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    &-item {
+      margin-left: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: none;
+      background-color: transparent;
+      &-active {
+        border-bottom: 2px solid #8c8c8c;
+      }
+      &:hover {
+        color: #8c8c8c;
+        cursor: pointer;
+      }
+    }
+  }
+  &__burger {
+    display: none;
+    button {
+      outline: none !important;
+    }
+  }
+}
+//
+//.header-container__list {
+//  display: flex;
+//  flex-direction: row;
+//  list-style: none;
+//  a {
+//    text-decoration: none;
+//    color: black;
+//  }
+//  &-item {
+//    margin-left: 50px;
+//    font-weight: 700;
+//    font-size: 1rem;
+//    transition: all 0.3s ease;
+//    border: none;
+//    background-color: transparent;
+//    &-active {
+//      border-bottom: 2px solid #8c8c8c;
+//    }
+//    &:hover {
+//      color: #8c8c8c;
+//      cursor: pointer;
+//    }
+//  }
+//}
+
+.burger-list {
+  display: none;
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+  flex-direction:column;
+  align-items:center;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  transition: all 10s ease-out;
+  -webkit-transition: background 0.5s ease-out;
+  a{
+    text-decoration: none;
+    color: black;
+    margin: 0.5em;
+  }
+  &-active {
+    border-bottom: 2px solid #8c8c8c;
+  }
+  &:hover {
+    color: #8c8c8c;
+    cursor: pointer;
+  }
+}
+
+@include responsive(tab-port){
+  .header-container__list-item{
+    margin-left: 30px;
+  }
+}
+@include responsive(lg-phone){
+  .header {
+    flex-direction: column;
+    &-container{
+      &__list{
+        display: none;
+      }
+      &__burger {
+        display: block;
+        margin-left: 10em;
+      }
+    }
+  }
+}
+
+@include responsive(sm-phone){
+  .header {
+    flex-direction: column;
+    &-container{
+      &__list{
+        display: none;
+      }
+      &__burger {
+        display: block;
+        margin-left: 4em;
+      }
+    }
+  }
+}

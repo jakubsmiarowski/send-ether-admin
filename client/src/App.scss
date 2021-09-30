@@ -1,0 +1,43 @@
+@mixin responsive ($breakpoint) {
+
+  @if $breakpoint == sm-phone {
+    @media (max-width: 575px) {@content};
+  }
+
+  @if $breakpoint == lg-phone {
+    @media(min-width: 576px) and (max-width: 767px){ @content };
+  }
+
+  @if $breakpoint == tab-port {
+    @media(min-width: 768px) and (max-width: 1023px){ @content };
+  }
+
+  @if $breakpoint == tab-land {
+    @media(min-width: 1024px){ @content };
+  }
+
+  @if $breakpoint == big-desktop {
+    @media(min-width: 1440px){ @content };
+  }
+}
+
+body {
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  padding: 2em 6em;
+}
+@include responsive(sm-phone) {
+  .container {
+    padding: 0.5rem;
+  }
+}
+
+@include responsive(lg-phone) {
+  .container {
+    padding: 1.5em;
+  }
+}
+@include responsive(tab-port) {
+  .container {
+    padding: 1.5em 3em;
+  }
+}

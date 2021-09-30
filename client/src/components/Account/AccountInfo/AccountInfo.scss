@@ -1,0 +1,61 @@
+@import "src/App";
+
+.account-info-container {
+  margin-top: 1em;
+  div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    p {
+      margin-left: 1em;
+      font-weight: 700;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+@include responsive(tab-land){
+  .container__info-wrapper {
+    div{
+      p{
+        margin: 0.5em 0 0.5em 1em;
+      }
+    }
+  }
+}
+@include responsive(tab-port){
+  .account-info-container {
+    div{
+      justify-content: space-between;
+      p{
+        margin: 0 0 0 1em;
+      }
+    }
+  }
+}
+
+@include responsive(lg-phone){
+  .account-info-container {
+    div{
+      justify-content: space-between;
+      p{
+        margin: 0 0 0 1em;
+      }
+    }
+  }
+}
+
+@include responsive(sm-phone){
+  .account-info-container {
+    div{
+      justify-content: space-between;
+      font-size: 10px;
+      p{
+        margin: 0 0 0 1em;
+        font-size: 13px;
+
+      }
+    }
+  }
+}

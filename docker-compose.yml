@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: build
+    container_name: send-ether-client
+    expose:
+      - "3000"
+    ports:
+      - '3000:3000'
+    environment:
+      - REACT_APP_CLIENT_ID=b14f89a480e159559436
+      - REACT_APP_CLIENT_SECRET=953c61ce407a64d0c3b20b2e26d4d21629850546
+      - REACT_APP_REDIRECT_URI=http://localhost:3000/login
+      - REACT_APP_BASE_URL=http://localhost:5000
+  #    volumes:
+  #      - ./src:/app/src
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      target: base
+    container_name: send-ether-server
+    expose:
+      - "5000"
+    ports:
+      - '5000:5000'
+#      - '5432:5432'
+    environment:
+      - SERVER_PORT=5000
+      - CLIENT_ID=b14f89a480e159559436
+      - CLIENT_SECRET=953c61ce407a64d0c3b20b2e26d4d21629850546
+      - REDIRECT_URI=http://localhost:3000/login
+      - DATABASE_URL=postgresql://postgres:Warszawa1234@postgres:5432/seadmin?schema=hello-prisma
+    command: npm run dev
+
+  postgres:
+    image: postgres:alpine
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=Warszawa1234
+    ports:
+      - "5432:5432"
+## tworzyc obrazy
+## wypchnac na githubacion
+## sciagnac repositories
+## exec bin bash
