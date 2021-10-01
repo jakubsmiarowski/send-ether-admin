@@ -2,7 +2,7 @@ FROM node:alpine as base
 WORKDIR /app
 COPY package.json ./
 RUN npm install
-COPY . .
+COPY server .
 RUN npx prisma generate
 FROM base as production
 RUN npm run build
