@@ -23,6 +23,7 @@ client/.dockerignore
 server/.dockerignore
 client/.env
 server/.env
+server/aws
 
 npm-debug.log*
 yarn-debug.log*
