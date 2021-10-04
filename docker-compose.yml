@@ -1,7 +1,11 @@
 version: '3.7'
 services:
   client:
-    image: jakubsmiarowski/send-ether-admin_client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: build
+    container_name: send-ether-client
     expose:
       - "3000"
     ports:
@@ -13,7 +17,11 @@ services:
       - REACT_APP_BASE_URL=http://localhost:5000/api
 
   server:
-    image: jakubsmiarowski/send-ether-admin_server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      target: base
+    container_name: send-ether-server
     expose:
       - "5000"
     ports:
